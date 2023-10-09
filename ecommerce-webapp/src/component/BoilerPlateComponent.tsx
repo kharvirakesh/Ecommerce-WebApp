@@ -1,8 +1,8 @@
 import React from "react";
 
 interface IBoilerPlateComponentProps {
-    property1: any;
-    property2: any;
+    property1: any; // replace any with profer datatype
+    property2: any; // replace any with profer datatype
 }
 
 export const BoilerPlateComponent = ({
