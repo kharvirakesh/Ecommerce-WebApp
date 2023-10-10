@@ -1,0 +1,22 @@
+.container {
+    background: linear-gradient(106deg, #ADB0B0 -2.93%, #E1E1E1 72.14%);
+    padding: 20px 30px;
+}
+
+.navbar {
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Poppins';
+    line-height: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+}
+
+.headerButton {
+    border-radius: 50px;
+    background: #1C1415;
+    color: white;
+}
