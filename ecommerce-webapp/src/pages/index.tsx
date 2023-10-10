@@ -13,9 +13,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+<<<<<<< HEAD
       <span>
         Home Page
       </span>
+=======
+      <div>
+        
+      </div>
+>>>>>>> fb469fdae1964ad3cd8e7e192c2c53b85f85ad2d
     </>
   );
 }
