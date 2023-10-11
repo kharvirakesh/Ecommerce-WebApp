@@ -1,5 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
 import { navLinks } from "@/constants";
 import { Button } from "antd";
 import Image from "next/image";
@@ -57,14 +56,4 @@ export const Header = ({}: IHeaderProps) => {
       </nav>
     </div>
   );
-=======
-
-interface IHeaderProps {
-  property1: any; // replace any with profer datatype
-  property2: any; // replace any with profer datatype
-}
-
-export const Header = ({ property1, property2 }: IHeaderProps) => {
-  return <div>Header</div>;
->>>>>>> fb469fdae1964ad3cd8e7e192c2c53b85f85ad2d
 };

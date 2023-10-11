@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import Layout from "@/layout/Layout";
+import { HeroComponent } from "@/component/Hero/HeroComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,15 +14,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-<<<<<<< HEAD
-      <span>
-        Home Page
-      </span>
-=======
       <div>
-        
+        {/* <HeroComponent property1={undefined} property2={undefined} /> */}
       </div>
->>>>>>> fb469fdae1964ad3cd8e7e192c2c53b85f85ad2d
     </>
   );
 }

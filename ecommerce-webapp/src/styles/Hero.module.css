@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 70px;
+    border: 1px solid red;
+}
+
+.title {
+    color: #FFF;
+    font-family: 'Sofia Sans';
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 137%;
+    letter-spacing: -0.76px;
+}
+
+.subTitle {
+    color: #FFF;
+    font-family: 'Sofia Sans';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 115.5%;
+    letter-spacing: -0.52px;
+}
+
+.description {
+    color: rgba(28, 20, 21, 0.80);
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 190%;
+}
+
+.pricing {
+    color: #FFF;
+    font-family: 'Poppins';
+    font-size: 41px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 137%;
+    letter-spacing: -0.7px;
+}
