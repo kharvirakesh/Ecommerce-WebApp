@@ -23,13 +23,7 @@ export const Header = ({}: IHeaderProps) => {
           <div>
             <Image src={Logo} alt="logo" />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className={styles.navbarLink}>
             {Array.isArray(navLinks) &&
               navLinks?.map((nav, index) => {
                 const { title, routePath } = nav;
@@ -37,7 +31,7 @@ export const Header = ({}: IHeaderProps) => {
                   <div key={index} style={{ padding: "0px 20px" }}>
                     {title !== "Sign Up" && title !== "Login" ? (
                       <>
-                        <span onClick={() => handleRoute(routePath)}>
+                        <span onClick={() => handleRoute(routePath)} className={styles.navLinkStyle}>
                           {title}
                         </span>
                       </>

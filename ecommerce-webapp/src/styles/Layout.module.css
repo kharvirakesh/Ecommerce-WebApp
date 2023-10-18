@@ -19,3 +19,13 @@
     background: #1C1415;
     color: white;
 }
+
+.navbarLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navLinkStyle{
+    cursor: pointer;
+}
