@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import Layout from "@/layout/Layout";
-import { HeroComponent } from "@/component/Hero/HeroComponent";
+import { Carousel } from "@/component/Carousel/Carousel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        {/* <HeroComponent property1={undefined} property2={undefined} /> */}
+        <Carousel property1={undefined} property2={undefined} />
       </div>
     </>
   );
