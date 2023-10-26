@@ -46,4 +46,13 @@ export const carouselProducts: Product[] = [
     price: 149.99,
     productImage: require("../../public/headphone.png"),
   },
+  {
+    id: "6",
+    productType: "headphones",
+    productTitle: "Premium Headphones",
+    productDescription:
+      "Immerse Yourself in Crystal-Clear Sound with Our Premium Headphone Collection - headphones",
+    price: 149.99,
+    productImage: require("../../public/headphone.png"),
+  },
 ];
