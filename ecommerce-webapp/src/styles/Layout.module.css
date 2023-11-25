@@ -1,31 +1,37 @@
 .container {
-    padding: 20px 30px;
+  padding: 20px 30px;
 }
 
 .navbar {
-    font-style: normal;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Poppins';
-    line-height: normal;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 40px;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins";
+  line-height: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
 }
 
 .headerButton {
-    border-radius: 50px;
-    background: #1C1415;
-    color: white;
+  border-radius: 50px;
+  background: #1c1415;
+  color: white;
 }
 
 .navbarLink {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navLinkStyle{
-    cursor: pointer;
+.navLinkStyle {
+  cursor: pointer;
+}
+
+.mobileContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -41,3 +41,7 @@
   line-height: 137%;
   letter-spacing: -0.7px;
 }
+
+.mobileContainer {
+  padding: 20px;
+}

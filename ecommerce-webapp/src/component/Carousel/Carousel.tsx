@@ -1,5 +1,5 @@
 import { Col, Row } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -23,37 +23,10 @@ export const Carousel = ({
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    className: 'center',
-    centerMode: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   // Function to update title and subtitle when the slider changes
   const handleBeforeChange = (oldIndex: number, newIndex: number) => {
@@ -64,36 +37,63 @@ export const Carousel = ({
 
   const currentProduct: Product = carouselProducts[currentSlide];
 
-  return (
-    <div className={styles.container}>
-      <Row>
-        <Col span={12}>
-          <span className={styles.title}>{currentProduct.productTitle}</span>
-          <br />
-          <span className={styles.subTitle}>
-            Choose Luxury, <span style={{ color: '#1C1415' }}>Choose Us</span>
-          </span>
-          <br />
-          <br />
-          <br />
-          <div className={styles.description}>{currentProduct.productDescription}</div>
-          <br />
-          <br />
-          <br />
-          <span className={styles.pricing}>${currentProduct.price.toFixed(2)}</span>
-        </Col>
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 768);
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-        <Col span={12}>
-          <Slider {...settings}>
-            {carouselProducts.map((cval: Product, ind: number) => (
-              <div key={cval.id}>
-                <Image src={cval.productImage} width={500} height={500} alt={cval.productTitle} />
-              </div>
-            ))}
-          </Slider>
-        </Col>
-      </Row>
-    </div>
+  return (
+    <>
+      {!isMobile ?
+        <div className={styles.container}>
+          <Row>
+            <Col span={12}>
+              <span className={styles.title}>
+                {currentProduct.productTitle}
+              </span>
+              <br />
+              <span className={styles.subTitle}>
+                Choose Luxury, <span style={{ color: '#1C1415' }}>Choose Us</span>
+              </span>
+              <div className={styles.description}>{currentProduct.productDescription}</div>
+              <span className={styles.pricing}>${currentProduct.price.toFixed(2)}</span>
+            </Col>
+            <Col span={12}>
+              <Slider {...settings}>
+                {carouselProducts?.map((cval: Product, ind: number) => (
+                  <Image key={cval.id} width={500} height={500} src={cval.productImage} alt={cval.productTitle} />
+                ))}
+              </Slider>
+            </Col>
+          </Row>
+        </div>
+        :
+        <div className={styles.mobileContainer}>
+          <Col span={24}>
+            <span className={styles.title}>
+              {currentProduct.productTitle}
+            </span>
+            <br />
+            <span className={styles.subTitle}>
+              Choose Luxury, <span style={{ color: '#1C1415' }}>Choose Us</span>
+            </span>
+            <div className={styles.description}>{currentProduct.productDescription}</div>
+            <span className={styles.pricing}>${currentProduct.price.toFixed(2)}</span>
+          </Col>
+          <Col>
+            <Slider {...settings}>
+              {carouselProducts?.map((cval: Product, ind: number) => (
+                <Image key={cval.id} width={300} height={300} src={cval.productImage} alt={cval.productTitle} />
+              ))}
+            </Slider>
+          </Col>
+        </div>
+      }
+    </>
   );
 };
 
