@@ -1,0 +1,69 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.25
+  ); /* Adjust alpha (last value) for desired opacity */
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+}
+
+.container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal {
+  font-family: "Roboto", sans-serif;
+  background-color: #528690;
+  border-radius: 8px;
+  padding: 20px 30px;
+  height: 350px;
+  animation: fadeIn 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.closeModal {
+  margin-bottom: 5px;
+  font-size: large;
+  width: max-content;
+  place-self: center;
+  background-color: #697071;
+  border-radius: 71px;
+  color: white;
+  border: 0.6px solid #ababab;
+  cursor: pointer;
+}
+
+.signupForm {
+  position: relative;
+  top: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formSubmit {
+  background-color: #566a6d;
+  width: 100%;
+  border-radius: 2px;
+  font-size: small;
+}
