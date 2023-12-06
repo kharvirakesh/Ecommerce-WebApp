@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/Modal.module.css";
+import styles from "../../styles/modal.module.css";
 import { useRouter } from "next/router";
 import { Form, Input, Button } from "antd";
 import type { FormItemProps } from "antd";
@@ -39,9 +39,11 @@ const MyFormItem = ({ name, ...props }: FormItemProps) => {
   return <Form.Item name={concatName} {...props} />;
 };
 
-interface IHeaderProps {}
+interface IModalProps {
+  onClose: () => void;
+}
 
-export const Modal = ({ onClose }) => {
+export const Modal = ({ onClose }: IModalProps) => {
   const router = useRouter();
 
   const closeModal = (e: any) => {

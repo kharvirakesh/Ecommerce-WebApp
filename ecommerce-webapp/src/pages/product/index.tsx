@@ -5,7 +5,7 @@ import { BreadCrumb } from "@/component/Common/BreadCrumb/BreadCrumb";
 import styles from '../../styles/product.module.css';
 
 export default function Product() {
-  const pageName = 'product'
+  const pageName = 'product';
   return (
     <div>
       <Head>

@@ -8,9 +8,11 @@ import { useRouter } from "next/router";
 import { Url } from "next/dist/shared/lib/router/router";
 import { slide as Menu } from "react-burger-menu";
 
-interface IHeaderProps {}
+interface IHeaderProps {
+  onSignupClick: () => void;
+}
 
-export const Header = ({ onSignupClick }) => {
+export const Header = ({ onSignupClick }: IHeaderProps) => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const router = useRouter();
