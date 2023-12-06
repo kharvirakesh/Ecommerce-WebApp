@@ -4,19 +4,14 @@ import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
-import styles from "../../styles/Hero.module.css";
+import styles from "../../styles/hero.module.css";
 import { carouselProducts } from '../../mockData/product';
 import { Product } from '@/interfaces/carousel.interface';
+import Link from 'next/link'
 
-interface ICarouselProps {
-  property1: any;
-  property2: any;
-}
+interface ICarouselProps { }
 
-export const Carousel = ({
-  property1,
-  property2,
-}: ICarouselProps) => {
+export const Carousel = ({ }: ICarouselProps) => {
   const settings: Settings = {
     dots: true,
     infinite: true,
@@ -53,19 +48,21 @@ export const Carousel = ({
           <Row>
             <Col span={12}>
               <span className={styles.title}>
-                {currentProduct.productTitle}
+                {currentProduct?.productTitle ?? ''}
               </span>
               <br />
               <span className={styles.subTitle}>
                 Choose Luxury, <span style={{ color: '#1C1415' }}>Choose Us</span>
               </span>
-              <div className={styles.description}>{currentProduct.productDescription}</div>
-              <span className={styles.pricing}>${currentProduct.price.toFixed(2)}</span>
+              <div className={styles.description}>{currentProduct?.productDescription ?? ''}</div>
+              <span className={styles.pricing}>${currentProduct?.price.toFixed(2) ?? ''}</span>
             </Col>
             <Col span={12}>
               <Slider {...settings}>
                 {carouselProducts?.map((cval: Product, ind: number) => (
-                  <Image key={cval.id} width={500} height={500} src={cval.productImage} alt={cval.productTitle} />
+                  <Link href={`/product`}>
+                    <Image key={cval.id} width={500} height={500} src={cval.productImage ?? ''} alt={cval.productTitle ?? ''} />
+                  </Link>
                 ))}
               </Slider>
             </Col>
@@ -75,19 +72,19 @@ export const Carousel = ({
         <div className={styles.mobileContainer}>
           <Col span={24}>
             <span className={styles.title}>
-              {currentProduct.productTitle}
+              {currentProduct?.productTitle ?? ''}
             </span>
             <br />
             <span className={styles.subTitle}>
               Choose Luxury, <span style={{ color: '#1C1415' }}>Choose Us</span>
             </span>
-            <div className={styles.description}>{currentProduct.productDescription}</div>
-            <span className={styles.pricing}>${currentProduct.price.toFixed(2)}</span>
+            <div className={styles.description}>{currentProduct?.productDescription ?? ''}</div>
+            <span className={styles.pricing}>${currentProduct?.price.toFixed(2) ?? ''}</span>
           </Col>
           <Col>
             <Slider {...settings}>
               {carouselProducts?.map((cval: Product, ind: number) => (
-                <Image key={cval.id} width={300} height={300} src={cval.productImage} alt={cval.productTitle} />
+                <Image key={cval.id} width={300} height={300} src={cval.productImage ?? ''} alt={cval.productTitle} />
               ))}
             </Slider>
           </Col>

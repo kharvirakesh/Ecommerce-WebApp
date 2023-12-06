@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import { Carousel } from "@/component/Carousel/Carousel";
 
 export default function Home() {
@@ -12,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Carousel property1={undefined} property2={undefined} />
+        <Carousel />
       </div>
     </>
   );
