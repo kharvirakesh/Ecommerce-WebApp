@@ -60,8 +60,8 @@ export const Carousel = ({ }: ICarouselProps) => {
             <Col span={12}>
               <Slider {...settings}>
                 {carouselProducts?.map((cval: Product, ind: number) => (
-                  <Link href={`/product`}>
-                    <Image key={cval.id} width={500} height={500} src={cval.productImage ?? ''} alt={cval.productTitle ?? ''} />
+                  <Link href={`/product`} key={cval.id}>
+                    <Image width={500} height={500} src={cval.productImage ?? ''} alt={cval.productTitle ?? ''} />
                   </Link>
                 ))}
               </Slider>
