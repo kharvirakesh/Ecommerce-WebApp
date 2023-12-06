@@ -36,7 +36,7 @@
   font-family: "Roboto", sans-serif;
   background-color: #528690;
   border-radius: 8px;
-  padding: 20px 30px;
+  /* padding: 20px 30px; */
   height: 350px;
   animation: fadeIn 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
@@ -66,4 +66,14 @@
   width: 100%;
   border-radius: 2px;
   font-size: small;
+}
+
+.vectors {
+  background: aliceblue;
+  position: relative;
+  top: 70px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+  border: 0px !important;
 }
