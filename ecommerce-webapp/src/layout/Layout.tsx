@@ -1,15 +1,27 @@
 import { Header } from "@/component/Header/Header";
-import { ReactNode } from "react";
+import { Modal } from "@/component/Modal/Modal";
+import { ReactNode, useState } from "react";
 
 interface IProps {
   children: ReactNode;
 }
 
 const Layout = ({ children }: IProps) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
-      <Header />
+      <Header onSignupClick={openModal} />
       <main>{children}</main>
+      {showModal && <Modal onClose={closeModal} />}
       {/* <Footer /> */}
     </>
   );

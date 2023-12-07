@@ -3,15 +3,16 @@ import { navLinks } from "@/constants";
 import { Button, Divider } from "antd";
 import Image from "next/image";
 import Logo from "../../../public/Logo.svg";
-import styles from "../../styles/Layout.module.css";
+import styles from "../../styles/layout.module.css";
 import { useRouter } from "next/router";
 import { Url } from "next/dist/shared/lib/router/router";
-import { slide as Menu } from 'react-burger-menu'
+import { slide as Menu } from "react-burger-menu";
 
-interface IHeaderProps { }
+interface IHeaderProps {
+  onSignupClick: () => void;
+}
 
-export const Header = ({ }: IHeaderProps) => {
-
+export const Header = ({ onSignupClick }: IHeaderProps) => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const router = useRouter();
@@ -26,47 +27,47 @@ export const Header = ({ }: IHeaderProps) => {
 
   var style = {
     bmBurgerButton: {
-      position: 'sticky',
-      width: '36px',
-      height: '30px',
-      left: '36px',
-      top: '36px',
+      position: "sticky",
+      width: "36px",
+      height: "30px",
+      left: "36px",
+      top: "36px",
     },
     bmBurgerBars: {
-      background: '#373a47'
+      background: "#373a47",
     },
     bmBurgerBarsHover: {
-      background: '#a90000',
+      background: "#a90000",
     },
     bmCrossButton: {
-      height: '24px',
-      width: '24px'
+      height: "24px",
+      width: "24px",
     },
     bmCross: {
-      background: '#bdc3c7',
+      background: "#bdc3c7",
     },
     bmMenuWrap: {
-      position: 'fixed',
-      height: '100%',
-      top: '0px',
+      position: "fixed",
+      height: "100%",
+      top: "0px",
     },
     bmMenu: {
-      background: '#ffff',
-      padding: '2.5em 1.5em 0',
-      fontSize: '1.15em',
+      background: "#ffff",
+      padding: "2.5em 1.5em 0",
+      fontSize: "1.15em",
     },
     bmOverlay: {
-      background: 'transparent'
-    }
-  }
+      background: "transparent",
+    },
+  };
 
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth <= 768);
     }
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -122,13 +123,20 @@ export const Header = ({ }: IHeaderProps) => {
                     <div key={index} style={{ padding: "0px 20px" }}>
                       {title !== "Sign Up" && title !== "Login" ? (
                         <>
-                          <span onClick={() => handleRoute(routePath)} className={styles.navLinkStyle}>
+                          <span
+                            onClick={() => handleRoute(routePath)}
+                            className={styles.navLinkStyle}
+                          >
                             {title}
                           </span>
                         </>
                       ) : (
                         <>
-                          <Button type="primary" className={styles.headerButton}>
+                          <Button
+                            type="primary"
+                            className={styles.headerButton}
+                            onClick={onSignupClick}
+                          >
                             {title}
                           </Button>
                         </>

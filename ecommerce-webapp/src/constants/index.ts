@@ -33,3 +33,49 @@ export const navLinks = [
     routePath: userIsLoggedIn ? "/profile" : isFirstTime ? "/signup" : "/login",
   },
 ];
+
+export const generateBreadcrumbs = (currentPage: string) => {
+  const breadcrumbs = [
+    {
+      title: "Home",
+      link: "/",
+    },
+  ];
+
+  switch (currentPage) {
+    case "product":
+      breadcrumbs.push({
+        title: "Product",
+        link: "/product",
+      });
+      break;
+    case "product-description":
+      breadcrumbs.push(
+        {
+          title: "Product",
+          link: "/product",
+        },
+        {
+          title: "Product Description",
+          link: "/product/description",
+        }
+      );
+      break;
+    case "about":
+      breadcrumbs.push({
+        title: "About Us",
+        link: "/about",
+      });
+      break;
+    case "contact":
+      breadcrumbs.push({
+        title: "Contact",
+        link: "/contact",
+      });
+      break;
+    default:
+      break;
+  }
+
+  return breadcrumbs;
+};
