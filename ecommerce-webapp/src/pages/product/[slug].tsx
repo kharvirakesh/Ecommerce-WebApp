@@ -71,7 +71,7 @@ const Product = () => {
               Select Size
             </p>
             <div className={styles.sizeContainer}>
-              {options.map((cval, id) => {
+              {options?.slice(0,3)?.map((cval, id) => {
                 return <Button
                   key={id}
                   className={styles.sizeButton}
