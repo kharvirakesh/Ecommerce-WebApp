@@ -79,3 +79,10 @@ export const generateBreadcrumbs = (currentPage: string) => {
 
   return breadcrumbs;
 };
+
+// Sizes
+export const options = [
+  { label: 'S', value: 'SMALL' },
+  { label: 'M', value: 'MEDIUM' },
+  { label: 'L', value: 'LARGE' },
+];

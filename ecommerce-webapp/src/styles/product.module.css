@@ -40,8 +40,14 @@
   font-family: poppins;
 }
 
-.radioButtonWrapper {
-  /* border: 2px solid red; */
-  /* background: #d9d9d9; */
-  /* color: #ff0d0d; */
+.sizeContainer {
+}
+
+.sizeButton {
+  margin-left: 5px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background: white;
+  color: #ff0d0d;
 }

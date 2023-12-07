@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import Head from "next/head";
 import { BreadCrumb } from "@/component/Common/BreadCrumb/BreadCrumb";
 import styles from '../../styles/product.module.css';
-import { Col, Row } from "antd";
+import { Col, Row, Button } from "antd";
 import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
 import { carouselProducts } from "@/mockData/product";
 import { Product } from "@/interfaces/carousel.interface";
-import type { RadioChangeEvent } from 'antd';
-import { Radio } from 'antd';
+import { options } from "@/constants";
 
 const Product = () => {
   const pageName = 'product-description';
@@ -24,17 +23,12 @@ const Product = () => {
     slidesToScroll: 1,
   };
 
-  const options = [
-    { label: 'SMALL', value: 'SMALL' },
-    { label: 'MEDIUM', value: 'MEDIUM' },
-    { label: 'LARGE', value: 'LARGE' },
-  ];
+  const [value, setValue] = useState<string>('SMALL');
 
-  const [value, setValue] = useState('SMALL');
-
-  const onChange = ({ target: { value } }: RadioChangeEvent) => {
+  const handleSelectSize = (value: string) => {
+    alert(value);
     setValue(value);
-  };
+  }
 
   return (
     <div>
@@ -66,7 +60,7 @@ const Product = () => {
             <br />
             <div style={{ border: '1px solid #000000', margin: '10px 0px' }}></div>
             <span className={styles.discoutPrice}>
-              ₹ 10795</span> <span className={styles.actualPrice}>MRP ₹11995(10% OFF)
+              ₹ 10795</span> <span className={styles.actualPrice}>MRP ₹11995 (10% OFF)
             </span>
             <br />
             <span className={styles.tax}>
@@ -76,13 +70,17 @@ const Product = () => {
             <p className={styles.selectSize}>
               Select Size
             </p>
-            <Radio.Group
-              options={options}
-              onChange={onChange}
-              value={value}
-              optionType="button"
-              className={styles.radioButtonWrapper}
-            />
+            <div className={styles.sizeContainer}>
+              {options.map((cval, id) => {
+                return <Button
+                  key={id}
+                  className={styles.sizeButton}
+                  onClick={() => handleSelectSize(cval.value)}
+                >
+                  {cval.label}
+                </Button>
+              })}
+            </div>
           </Col>
         </Row>
       </div>
