@@ -17,7 +17,8 @@ export const BreadCrumb = ({ currentPage }: IBreadCrumbProps) => {
             {item.link ? (
               <a href={item.link}>{item.title ?? ''}</a>
             ) : (
-              <span>{item.title ?? ''}</span>
+              <span>
+                {item.title ?? ''}</span>
             )}
           </Breadcrumb.Item>
         ))}

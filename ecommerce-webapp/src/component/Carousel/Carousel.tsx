@@ -7,7 +7,7 @@ import Image from 'next/image';
 import styles from "../../styles/hero.module.css";
 import { carouselProducts } from '../../mockData/product';
 import { Product } from '@/interfaces/carousel.interface';
-import Link from 'next/link'
+import Link from 'next/link';
 
 interface ICarouselProps { }
 
