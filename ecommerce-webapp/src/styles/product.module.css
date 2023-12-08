@@ -51,3 +51,20 @@
   background: white;
   color: #ff0d0d;
 }
+
+.sizeButton::after {
+  border: 1px solid #ff0d0d;
+}
+
+.buyNow {
+  background: #71a84f;
+  color: #eaeaea;
+  border: 1px solid #000000;
+  padding: 0px 40px;
+  margin: 20px 0px;
+  font-weight: 600;
+}
+
+.wishList {
+  margin: 0px 10px;
+}

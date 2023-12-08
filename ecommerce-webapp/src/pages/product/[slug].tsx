@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { carouselProducts } from "@/mockData/product";
 import { Product } from "@/interfaces/carousel.interface";
 import { options } from "@/constants";
+import { HeartTwoTone, HeartOutlined } from '@ant-design/icons';
 
 const Product = () => {
   const pageName = 'product-description';
@@ -24,11 +25,16 @@ const Product = () => {
   };
 
   const [value, setValue] = useState<string>('SMALL');
+  const [addWishList, setWishList] = useState<boolean>(false);
 
   const handleSelectSize = (value: string) => {
     alert(value);
     setValue(value);
-  }
+  };
+
+  const handleWishList = () => {
+    setWishList(!addWishList)
+  };
 
   return (
     <div>
@@ -71,7 +77,7 @@ const Product = () => {
               Select Size
             </p>
             <div className={styles.sizeContainer}>
-              {options?.slice(0,3)?.map((cval, id) => {
+              {options?.slice(0, 3)?.map((cval, id) => {
                 return <Button
                   key={id}
                   className={styles.sizeButton}
@@ -80,6 +86,20 @@ const Product = () => {
                   {cval.label}
                 </Button>
               })}
+            </div>
+            <div>
+              <Button
+                className={styles.buyNow}
+              >
+                BUY NOW
+              </Button>
+              <Button
+                className={styles.wishList}
+                icon={addWishList ? <HeartTwoTone twoToneColor="#eb2f96" /> : <HeartOutlined />}
+                onClick={handleWishList}
+              >
+                WISHLIST
+              </Button>
             </div>
           </Col>
         </Row>
