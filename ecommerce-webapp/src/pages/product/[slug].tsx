@@ -11,10 +11,15 @@ import { carouselProducts } from "@/mockData/product";
 import { Product } from "@/interfaces/carousel.interface";
 import { options } from "@/constants";
 import { HeartTwoTone, HeartOutlined } from '@ant-design/icons';
+import ShowMessage from "@/component/Common/MessageComponent/MessageComponent";
+// import { PincodeCheck } from "@/component/Common/PinCodeCheck/PinCodeCheck";
+// import ShowMessage from "@/component/Common/MessageComponent/MessageComponent";
 
 const Product = () => {
   const pageName = 'product-description';
   const pageTitle = `${pageName.charAt(0).toUpperCase()}${pageName.slice(1) ?? ''} Page`;
+  const condition = 'error';
+  const messageContent = 'This is a success message';
 
   const settings: Settings = {
     dots: false,
@@ -34,6 +39,12 @@ const Product = () => {
 
   const handleWishList = () => {
     setWishList(!addWishList)
+  };
+
+  const handleBuyNow = () => {
+    // ShowMessage(type: 'success' | 'error' | 'warning', content: string);
+    // ShowMessage('error', 'This is an error message');
+    ShowMessage('error', 'This is an error message');
   };
 
   return (
@@ -90,6 +101,7 @@ const Product = () => {
             <div>
               <Button
                 className={styles.buyNow}
+                // onClick={handleBuyNow}
               >
                 BUY NOW
               </Button>
@@ -100,11 +112,11 @@ const Product = () => {
               >
                 WISHLIST
               </Button>
-            </div>
-          </Col>
+              </div>
+            </Col>
         </Row>
       </div>
-    </div>
+    </div >
   );
 };
 
