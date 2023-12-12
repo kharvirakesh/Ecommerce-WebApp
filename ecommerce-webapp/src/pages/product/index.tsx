@@ -4,6 +4,7 @@ import { BreadCrumb } from "@/component/Common/BreadCrumb/BreadCrumb";
 import styles from "../../styles/product.module.css";
 import { Col, Row } from "antd";
 import { ProductCard } from "@/component/ProductCard/ProductCard";
+import { collectionProducts } from "../../mockData/product";
 
 const Product = () => {
   const pageName = "product";
@@ -11,12 +12,12 @@ const Product = () => {
     pageName.slice(1) ?? ""
   } Page`;
 
-  const renderProductItems = (count: number) => {
+  const renderProductItems = (products: []) => {
     const items = [];
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < products.length; i++) {
       items.push(
         <Col>
-          <ProductCard />
+          <ProductCard product={products[i]} />
         </Col>
       );
     }
@@ -52,7 +53,7 @@ const Product = () => {
                 justify='center'
                 style={{ marginTop: "20px" }}
               >
-                {renderProductItems(20)}
+                {renderProductItems(collectionProducts)}
               </Row>
             </Row>
           </Col>
