@@ -46,6 +46,7 @@ const Product = () => {
             <Row
               style={{
                 background: "#598892",
+                borderRadius: "10px",
               }}
             >
               <Row
@@ -63,6 +64,7 @@ const Product = () => {
             style={{
               height: "auto",
               background: "#598892",
+              borderRadius: "10px",
             }}
           >
             <Col> </Col>
