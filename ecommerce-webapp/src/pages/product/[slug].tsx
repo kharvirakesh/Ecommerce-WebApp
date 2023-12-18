@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import { BreadCrumb } from "@/component/Common/BreadCrumb/BreadCrumb";
 import styles from '../../styles/product.module.css';
-import { Col, Row, Button } from "antd";
+import { Col, Row, Button, message } from "antd";
 import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -11,15 +11,12 @@ import { carouselProducts } from "@/mockData/product";
 import { Product } from "@/interfaces/carousel.interface";
 import { options } from "@/constants";
 import { HeartTwoTone, HeartOutlined } from '@ant-design/icons';
-import ShowMessage from "@/component/Common/MessageComponent/MessageComponent";
-// import { PincodeCheck } from "@/component/Common/PinCodeCheck/PinCodeCheck";
-// import ShowMessage from "@/component/Common/MessageComponent/MessageComponent";
-
 const Product = () => {
   const pageName = 'product-description';
   const pageTitle = `${pageName.charAt(0).toUpperCase()}${pageName.slice(1) ?? ''} Page`;
+  const [messageApi, contextHolder] = message.useMessage();
   const condition = 'error';
-  const messageContent = 'This is a success message';
+  const messageContent = 'Please select a size';
 
   const settings: Settings = {
     dots: false,
@@ -29,11 +26,10 @@ const Product = () => {
     slidesToScroll: 1,
   };
 
-  const [value, setValue] = useState<string>('SMALL');
+  const [value, setValue] = useState<string>('');
   const [addWishList, setWishList] = useState<boolean>(false);
 
   const handleSelectSize = (value: string) => {
-    alert(value);
     setValue(value);
   };
 
@@ -42,9 +38,12 @@ const Product = () => {
   };
 
   const handleBuyNow = () => {
-    // ShowMessage(type: 'success' | 'error' | 'warning', content: string);
-    // ShowMessage('error', 'This is an error message');
-    ShowMessage('error', 'This is an error message');
+    if (!value) {
+      messageApi.open({
+        type: condition,
+        content: messageContent,
+      })
+    };
   };
 
   return (
@@ -91,17 +90,18 @@ const Product = () => {
               {options?.slice(0, 3)?.map((cval, id) => {
                 return <Button
                   key={id}
-                  className={styles.sizeButton}
+                  className={`${styles.sizeButton} ${value === cval.value ? styles.selectedSize : ''}`}
                   onClick={() => handleSelectSize(cval.value)}
                 >
                   {cval.label}
                 </Button>
               })}
             </div>
+            {contextHolder}
             <div>
               <Button
                 className={styles.buyNow}
-                // onClick={handleBuyNow}
+                onClick={handleBuyNow}
               >
                 BUY NOW
               </Button>
@@ -112,8 +112,8 @@ const Product = () => {
               >
                 WISHLIST
               </Button>
-              </div>
-            </Col>
+            </div>
+          </Col>
         </Row>
       </div>
     </div >

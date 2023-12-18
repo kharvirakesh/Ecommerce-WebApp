@@ -40,7 +40,8 @@
   font-family: poppins;
 }
 
-.sizeContainer {
+.selectedSize {
+  border: 2px solid #1677ff;
 }
 
 .sizeButton {
