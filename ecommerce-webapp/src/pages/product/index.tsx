@@ -8,13 +8,12 @@ import { collectionProducts } from "../../mockData/product";
 
 const Product = () => {
   const pageName = "product";
-  const pageTitle = `${pageName.charAt(0).toUpperCase()}${
-    pageName.slice(1) ?? ""
-  } Page`;
+  const pageTitle = `${pageName.charAt(0).toUpperCase()}${pageName.slice(1) ?? ""
+    } Page`;
 
   const renderProductItems = (products: []) => {
     const items = [];
-    for (let i = 0; i < products.length; i++) {
+    for (let i = 0; i < products?.length; i++) {
       items.push(
         <Col>
           <ProductCard product={products[i]} />
@@ -27,7 +26,7 @@ const Product = () => {
   return (
     <div>
       <Head>
-        <title>{pageTitle} </title>
+        <title>{pageTitle ?? ''}</title>
         <meta
           name='description'
           content='New description for your product page'

@@ -1,7 +1,7 @@
-import { Product } from "@/interfaces/carousel.interface";
+import { IProduct } from "@/interfaces/carousel.interface";
 import { Collections } from "@/interfaces/collections.interface";
 
-export const carouselProducts: Product[] = [
+export const carouselProducts: IProduct[] = [
   {
     id: "1",
     productType: "watch",
