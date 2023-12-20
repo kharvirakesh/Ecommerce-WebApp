@@ -21,8 +21,8 @@ export const navLinks = [
     routePath: "/contact-us",
   },
   {
-    title: "Blog",
-    routePath: "/blog",
+    title: "Wishlist",
+    routePath: "/wishlist",
   },
   {
     title: userIsLoggedIn
