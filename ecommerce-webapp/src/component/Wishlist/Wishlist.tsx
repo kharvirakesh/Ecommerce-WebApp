@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/productCard.module.css";
+import styles from '../../styles/productCard.module.css';
 
-export const Wishlist = ({ isWishlisted, onWishlistClick }) => {
-  const [isWished, setisWished] = useState(isWishlisted);
-  const handleWishlistClick = (e) => {
+interface IWishListProps {
+  isWishlisted: boolean;
+  onWishlistClick: any;
+}
+
+export const Wishlist = ({ isWishlisted, onWishlistClick }: IWishListProps) => {
+  const [isWished, setisWished] = useState<boolean>(isWishlisted);
+  const handleWishlistClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation(); // Prevents the click event from propagating to the parent link
     e.preventDefault();
     console.log("a");
