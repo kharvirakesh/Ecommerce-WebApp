@@ -3,7 +3,7 @@ import styles from '../../styles/productCard.module.css';
 
 interface IWishListProps {
   isWishlisted: boolean;
-  onWishlistClick: any;
+  onWishlistClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 export const Wishlist = ({ isWishlisted, onWishlistClick }: IWishListProps) => {
