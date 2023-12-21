@@ -4,7 +4,7 @@ import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
-import styles from "../../styles/hero.module.css";
+import styles from '../../styles/hero.module.css';
 import { carouselProducts } from '../../mockData/product';
 import Link from 'next/link'
 import { IProduct } from '../../interfaces/carousel.interface';
