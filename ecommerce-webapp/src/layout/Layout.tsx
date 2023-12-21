@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const Layout = ({ children }: IProps) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const openModal = () => {
     setShowModal(true);
@@ -20,7 +20,9 @@ const Layout = ({ children }: IProps) => {
   return (
     <>
       <Header onSignupClick={openModal} />
-      <main>{children}</main>
+      <main>
+        {children}
+      </main>
       {showModal && <Modal onClose={closeModal} />}
       {/* <Footer /> */}
     </>
