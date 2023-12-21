@@ -5,16 +5,16 @@ import styles from "../../styles/product.module.css";
 import { Col, Row } from "antd";
 import { ProductCard } from "@/component/ProductCard/ProductCard";
 import { collectionProducts } from "../../mockData/product";
+import { Collections } from "@/interfaces/collections.interface";
 
 const Product = () => {
   const pageName = "product";
-  const pageTitle = `${pageName.charAt(0).toUpperCase()}${
-    pageName.slice(1) ?? ""
-  } Page`;
+  const pageTitle = `${pageName.charAt(0).toUpperCase()}${pageName.slice(1) ?? ""
+    } Page`;
 
-  const renderProductItems = (products: []) => {
+  const renderProductItems = (products: Collections[]) => {
     const items = [];
-    for (let i = 0; i < products.length; i++) {
+    for (let i = 0; i < products?.length; i++) {
       items.push(
         <Col>
           <ProductCard product={products[i]} />
@@ -27,7 +27,7 @@ const Product = () => {
   return (
     <div>
       <Head>
-        <title>{pageTitle} </title>
+        <title>{pageTitle ?? ''}</title>
         <meta
           name='description'
           content='New description for your product page'

@@ -6,8 +6,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
 import styles from "../../styles/hero.module.css";
 import { carouselProducts } from '../../mockData/product';
-import { Product } from '@/interfaces/carousel.interface';
 import Link from 'next/link'
+import { IProduct } from '../../interfaces/carousel.interface';
 
 interface ICarouselProps { }
 
@@ -30,7 +30,7 @@ export const Carousel = ({ }: ICarouselProps) => {
 
   settings.beforeChange = handleBeforeChange;
 
-  const currentProduct: Product = carouselProducts[currentSlide];
+  const currentProduct: IProduct = carouselProducts[currentSlide];
 
   useEffect(() => {
     function handleResize() {
@@ -59,7 +59,7 @@ export const Carousel = ({ }: ICarouselProps) => {
             </Col>
             <Col span={12}>
               <Slider {...settings}>
-                {carouselProducts?.map((cval: Product, ind: number) => (
+                {carouselProducts?.map((cval: IProduct, ind: number) => (
                   <Link href={`/product`} key={cval.id}>
                     <Image width={500} height={500} src={cval.productImage ?? ''} alt={cval.productTitle ?? ''} />
                   </Link>
@@ -83,7 +83,7 @@ export const Carousel = ({ }: ICarouselProps) => {
           </Col>
           <Col>
             <Slider {...settings}>
-              {carouselProducts?.map((cval: Product, ind: number) => (
+              {carouselProducts?.map((cval: IProduct, ind: number) => (
                 <Image key={cval.id} width={300} height={300} src={cval.productImage ?? ''} alt={cval.productTitle} />
               ))}
             </Slider>

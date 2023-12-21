@@ -1,3 +1,71 @@
 .container {
   padding: 20px 70px;
 }
+
+.productTitle {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.productDescription {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.discoutPrice {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 42px;
+}
+
+.actualPrice {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 33px;
+  color: #727272;
+}
+
+.tax {
+  color: #346f65;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.selectSize {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  font-family: poppins;
+}
+
+.selectedSize {
+  border: 2px solid #1677ff;
+}
+
+.sizeButton {
+  margin-left: 5px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background: white;
+  color: #ff0d0d;
+}
+
+.sizeButton::after {
+  border: 1px solid #ff0d0d;
+}
+
+.buyNow {
+  background: #71a84f;
+  color: #eaeaea;
+  border: 1px solid #000000;
+  padding: 0px 40px;
+  margin: 20px 0px;
+  font-weight: 600;
+}
+
+.wishList {
+  margin: 0px 10px;
+}
