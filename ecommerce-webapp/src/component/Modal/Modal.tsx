@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/modal.module.css";
+import styles from "@/styles/modal.module.css";
 import { useRouter } from "next/router";
 import { Form, Input, Button } from "antd";
 import type { FormItemProps } from "antd";

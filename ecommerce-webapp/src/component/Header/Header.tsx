@@ -3,7 +3,7 @@ import { navLinks } from "@/constants";
 import { Button, Divider } from "antd";
 import Image from "next/image";
 import Logo from "../../../public/Logo.svg";
-import styles from "../../styles/layout.module.css";
+import styles from '@/styles/layout.module.css';
 import { useRouter } from "next/router";
 import { Url } from "next/dist/shared/lib/router/router";
 import { slide as Menu } from "react-burger-menu";

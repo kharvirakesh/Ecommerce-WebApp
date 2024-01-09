@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import { BreadCrumb } from "@/component/Common/BreadCrumb/BreadCrumb";
-import styles from '../../styles/product.module.css';
+import styles from '@/styles/product.module.css';
 import { Col, Row, Button, message } from "antd";
 import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
