@@ -3,16 +3,12 @@ import { Col, Row } from "antd";
 import { Collections } from "@/interfaces/collections.interface";
 import { collectionProducts } from "../../mockData/product";
 
-interface IProductProps {
-  product: Collections;
-}
-
 const index = () => {
   const wishlistedItems = collectionProducts.filter((item: any) => {
     return item.isWishlisted;
   });
 
-  const renderWishlist = (product: []) => {
+  const renderWishlist = (product: Collections[]) => {
     let array = [];
     for (let i = 0; i < product.length; i++) {
       array.push(
@@ -50,7 +46,7 @@ const index = () => {
                   fontWeight: "bold",
                 }}
               >
-                <span>{product[i]?.productTitle}</span>
+                <span>{product[i]?.productTitle ?? ''}</span>
               </div>
               <div
                 style={{
@@ -59,7 +55,7 @@ const index = () => {
                   textOverflow: "ellipsis",
                 }}
               >
-                {product[i]?.productDescription}
+                {product[i]?.productDescription ?? ''}
               </div>
               <div
                 style={{
@@ -129,14 +125,18 @@ const index = () => {
                       transition: "box-shadow 0.2s ease",
                       boxShadow: "0px 0px 12px rgba(0, 0, 0, 0)",
                     }}
-                    onMouseEnter={(e) => {
-                      e.target.style.boxShadow =
-                        "0px 0px 12px rgba(0, 0, 0, 0.3)";
+                    onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
+                      const target = e.target as HTMLDivElement;
+                      if (target) {
+                        target.style.boxShadow = "0px 0px 12px rgba(0, 0, 0, 0.3)";
+                      }
                     }}
-                    onMouseLeave={(e) => {
-                      e.target.style.boxShadow =
-                        "0px 0px 12px rgba(0, 0, 0, 0)";
-                    }} // Reset shadow
+                    onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => {
+                      const target = e.target as HTMLDivElement;
+                      if (target) {
+                        target.style.boxShadow = "0px 0px 12px rgba(0, 0, 0, 0)";
+                      }
+                    }}
                   >
                     <button
                       style={{
