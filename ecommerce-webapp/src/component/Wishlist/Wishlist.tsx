@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from '../../styles/productCard.module.css';
+import styles from '@/styles/productCard.module.css';
 
 interface IWishListProps {
   isWishlisted: boolean;

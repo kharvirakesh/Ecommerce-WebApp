@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { BreadCrumb } from "@/component/Common/BreadCrumb/BreadCrumb";
-import styles from "../../styles/product.module.css";
+import styles from '@/styles/product.module.css';
 import { Col, Row } from "antd";
 import { ProductCard } from "@/component/ProductCard/ProductCard";
 import { collectionProducts } from "../../mockData/product";

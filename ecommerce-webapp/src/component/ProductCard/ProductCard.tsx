@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/productCard.module.css";
+import styles from "@/styles/productCard.module.css";
 import { Collections } from "@/interfaces/collections.interface";
 import { Avatar, Card } from "antd";
 import Link from "next/link";
